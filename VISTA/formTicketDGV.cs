@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace VISTA
 {
-    public partial class formHistorialDGV : Form
+    public partial class formTicketDGV : Form
     {
-        public formHistorialDGV()
+        public formTicketDGV()
         {
             InitializeComponent();
             ActualizarGrilla();

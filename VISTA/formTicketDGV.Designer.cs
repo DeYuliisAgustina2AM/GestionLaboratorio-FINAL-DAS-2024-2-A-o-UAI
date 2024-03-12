@@ -1,6 +1,6 @@
 ﻿namespace VISTA
 {
-    partial class formHistorialDGV
+    partial class formTicketDGV
     {
         /// <summary>
         /// Required designer variable.

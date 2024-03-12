@@ -43,7 +43,7 @@
 
         private void btnTicketMenu_Click(object sender, EventArgs e)
         {
-            Form formHistorialDGV = new formHistorialDGV();
+            Form formHistorialDGV = new formTicketDGV();
             formHistorialDGV.ShowDialog();
         }
     }
