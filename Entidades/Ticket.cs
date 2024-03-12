@@ -21,7 +21,7 @@ namespace Entidades
         public Categoria categoria { get; set; }
         public Urgencia urgencia { get; set; }
         public Estado estado { get; set; }
-        public Tipo tipo { get; set; }
+        public Tipo tipo { get; set; } 
 
 
         public string Ubicacion { get; set; }
