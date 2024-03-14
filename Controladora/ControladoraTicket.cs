@@ -43,7 +43,7 @@ namespace Controladora
             try
             {
                 var listaTickets = context.Tickets.ToList().AsReadOnly();
-                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.computadora.CodigoComputadora == ticket.computadora.CodigoComputadora); //busco el ticket por id en la lista de tickets para evitar que se repitan
+                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.Computadora.CodigoComputadora == ticket.Computadora.CodigoComputadora); //busco el ticket por id en la lista de tickets para evitar que se repitan
                 if (ticketEncontrado == null)
                 {
                     
@@ -68,7 +68,7 @@ namespace Controladora
             try
             {
                 var listaTickets = context.Tickets.ToList().AsReadOnly();
-                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.computadora.CodigoComputadora == ticket.computadora.CodigoComputadora); //busco el ticket a modificar por id en la lista de tickets para evitar que se repitan
+                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.Computadora.CodigoComputadora == ticket.Computadora.CodigoComputadora); //busco el ticket a modificar por id en la lista de tickets para evitar que se repitan
                 if (ticketEncontrado != null)
                 {
                     context.Tickets.Update(ticket);
@@ -95,7 +95,7 @@ namespace Controladora
             try
             {
                 var listaTickets = context.Tickets.ToList().AsReadOnly();
-                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.computadora.CodigoComputadora == ticket.computadora.CodigoComputadora);
+                var ticketEncontrado = listaTickets.FirstOrDefault(t => t.Computadora.CodigoComputadora == ticket.Computadora.CodigoComputadora);
                 if (ticketEncontrado != null) //si el ticket existe, lo elimino
                 {
                     context.Tickets.Remove(ticket);

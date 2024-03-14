@@ -36,8 +36,6 @@
             cbTipoTicket = new ComboBox();
             cbEstado = new ComboBox();
             cbUrgencia = new ComboBox();
-            cbUbicacion = new ComboBox();
-            txtAsignado = new TextBox();
             txtDescripcion = new TextBox();
             cbCategoria = new ComboBox();
             label3 = new Label();
@@ -45,13 +43,13 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            label8 = new Label();
             label9 = new Label();
             label10 = new Label();
             btnAceptar = new Button();
             btnCancelar = new Button();
             label2 = new Label();
             cbCodigoPc = new ComboBox();
+            cbTecnico = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -106,7 +104,7 @@
             // 
             cbTipoTicket.DropDownStyle = ComboBoxStyle.DropDownList;
             cbTipoTicket.FormattingEnabled = true;
-            cbTipoTicket.Location = new Point(144, 239);
+            cbTipoTicket.Location = new Point(144, 194);
             cbTipoTicket.Name = "cbTipoTicket";
             cbTipoTicket.Size = new Size(236, 23);
             cbTipoTicket.TabIndex = 6;
@@ -115,7 +113,7 @@
             // 
             cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
             cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(145, 341);
+            cbEstado.Location = new Point(145, 296);
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(235, 23);
             cbEstado.TabIndex = 7;
@@ -124,30 +122,14 @@
             // 
             cbUrgencia.DropDownStyle = ComboBoxStyle.DropDownList;
             cbUrgencia.FormattingEnabled = true;
-            cbUrgencia.Location = new Point(145, 387);
+            cbUrgencia.Location = new Point(145, 342);
             cbUrgencia.Name = "cbUrgencia";
             cbUrgencia.Size = new Size(235, 23);
             cbUrgencia.TabIndex = 8;
             // 
-            // cbUbicacion
-            // 
-            cbUbicacion.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbUbicacion.FormattingEnabled = true;
-            cbUbicacion.Location = new Point(144, 187);
-            cbUbicacion.Name = "cbUbicacion";
-            cbUbicacion.Size = new Size(235, 23);
-            cbUbicacion.TabIndex = 9;
-            // 
-            // txtAsignado
-            // 
-            txtAsignado.Location = new Point(144, 436);
-            txtAsignado.Name = "txtAsignado";
-            txtAsignado.Size = new Size(236, 23);
-            txtAsignado.TabIndex = 10;
-            // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(140, 492);
+            txtDescripcion.Location = new Point(140, 447);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(252, 96);
@@ -157,7 +139,7 @@
             // 
             cbCategoria.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoria.FormattingEnabled = true;
-            cbCategoria.Location = new Point(144, 291);
+            cbCategoria.Location = new Point(144, 246);
             cbCategoria.Name = "cbCategoria";
             cbCategoria.Size = new Size(236, 23);
             cbCategoria.TabIndex = 13;
@@ -176,7 +158,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(22, 242);
+            label4.Location = new Point(22, 197);
             label4.Name = "label4";
             label4.Size = new Size(89, 20);
             label4.TabIndex = 15;
@@ -186,7 +168,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(22, 294);
+            label5.Location = new Point(22, 249);
             label5.Name = "label5";
             label5.Size = new Size(82, 20);
             label5.TabIndex = 16;
@@ -196,7 +178,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(22, 344);
+            label6.Location = new Point(22, 299);
             label6.Name = "label6";
             label6.Size = new Size(105, 20);
             label6.TabIndex = 17;
@@ -206,27 +188,17 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(22, 390);
+            label7.Location = new Point(22, 345);
             label7.Name = "label7";
             label7.Size = new Size(77, 20);
             label7.TabIndex = 18;
             label7.Text = "Urgencia:";
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(22, 190);
-            label8.Name = "label8";
-            label8.Size = new Size(83, 20);
-            label8.TabIndex = 19;
-            label8.Text = "Ubicación:";
-            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(22, 439);
+            label9.Location = new Point(22, 394);
             label9.Name = "label9";
             label9.Size = new Size(80, 20);
             label9.TabIndex = 20;
@@ -236,7 +208,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(22, 491);
+            label10.Location = new Point(22, 446);
             label10.Name = "label10";
             label10.Size = new Size(96, 20);
             label10.TabIndex = 21;
@@ -245,7 +217,7 @@
             // btnAceptar
             // 
             btnAceptar.FlatStyle = FlatStyle.Flat;
-            btnAceptar.Location = new Point(112, 619);
+            btnAceptar.Location = new Point(112, 567);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(83, 30);
             btnAceptar.TabIndex = 22;
@@ -256,7 +228,7 @@
             // btnCancelar
             // 
             btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Location = new Point(209, 619);
+            btnCancelar.Location = new Point(209, 567);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(83, 30);
             btnCancelar.TabIndex = 23;
@@ -282,18 +254,27 @@
             cbCodigoPc.Size = new Size(235, 23);
             cbCodigoPc.TabIndex = 25;
             // 
+            // cbTecnico
+            // 
+            cbTecnico.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbTecnico.FormattingEnabled = true;
+            cbTecnico.Location = new Point(140, 395);
+            cbTecnico.Name = "cbTecnico";
+            cbTecnico.Size = new Size(240, 23);
+            cbTecnico.TabIndex = 26;
+            // 
             // formTicketAM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(422, 661);
+            ClientSize = new Size(422, 611);
+            Controls.Add(cbTecnico);
             Controls.Add(cbCodigoPc);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(label10);
             Controls.Add(label9);
-            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -301,8 +282,6 @@
             Controls.Add(label3);
             Controls.Add(cbCategoria);
             Controls.Add(txtDescripcion);
-            Controls.Add(txtAsignado);
-            Controls.Add(cbUbicacion);
             Controls.Add(cbUrgencia);
             Controls.Add(cbEstado);
             Controls.Add(cbTipoTicket);
@@ -330,8 +309,6 @@
         private ComboBox cbTipoTicket;
         private ComboBox cbEstado;
         private ComboBox cbUrgencia;
-        private ComboBox cbUbicacion;
-        private TextBox txtAsignado;
         private TextBox txtDescripcion;
         private ComboBox cbCategoria;
         private Label label3;
@@ -339,12 +316,12 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private Label label8;
         private Label label9;
         private Label label10;
         private Button btnAceptar;
         private Button btnCancelar;
         private Label label2;
         private ComboBox cbCodigoPc;
+        private ComboBox cbTecnico;
     }
 }

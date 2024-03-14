@@ -26,11 +26,11 @@ namespace Controladora
             }
         }
 
-        public Universidad RecuperarUniversidad()
+        public ReadOnlyCollection<Sede> RecuperarSedes()
         {
             try
             {
-                return context.Universidades.FirstOrDefault(u => u.NombreUniversidad == "UAI");
+                return context.Sedes.ToList().AsReadOnly();
             }
             catch (Exception)
             {
@@ -38,11 +38,11 @@ namespace Controladora
             }
         }
 
-        public ReadOnlyCollection<Sede> RecuperarSedes()
+        public Universidad RecuperarUniversidad()
         {
             try
             {
-                return context.Sedes.ToList().AsReadOnly();
+                return context.Universidades.FirstOrDefault(u => u.NombreUniversidad == "UAI");
             }
             catch (Exception)
             {

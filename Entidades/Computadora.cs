@@ -24,5 +24,6 @@ namespace Entidades
         public int LaboratorioId { get; set; } //FK
         public Laboratorio Laboratorio { get; set; } //una computadora pertenece a un laboratorio
 
+
     }
 }

@@ -15,18 +15,20 @@ namespace Entidades
         public enum Urgencia { critica, alta, media, baja }
 
         public int TicketId { get; set; }
-        public string AgenteAsignado { get; set; }
+        public string Ubicacion { get; set; }
         public string? DescripcionTicket { get; set; }
         public DateTime FechaCreacion { get; set; }
+
         public Categoria categoria { get; set; }
         public Urgencia urgencia { get; set; }
         public Estado estado { get; set; }
-        public Tipo tipo { get; set; } 
+        public Tipo tipo { get; set; }
 
+        public ICollection<Laboratorio>laboratorios { get; set; } = new List<Laboratorio>();
 
-        public string Ubicacion { get; set; }
+        public Tecnico Tecnico { get; set; }
 
-        public Computadora computadora { get; set; }
+        public Computadora Computadora { get; set; }
 
     }
 }

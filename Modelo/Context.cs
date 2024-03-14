@@ -15,6 +15,7 @@ namespace Modelo
         public DbSet<Computadora> Computadoras { get; set; }
         public DbSet<Laboratorio> Laboratorios { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Tecnico> Tecnicos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

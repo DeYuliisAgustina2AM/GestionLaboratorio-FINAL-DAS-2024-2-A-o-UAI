@@ -36,6 +36,7 @@
             btnLaboratorioMenu = new Button();
             btnComputadoraMenu = new Button();
             btnTicketMenu = new Button();
+            btnTecnicosMenu = new Button();
             SuspendLayout();
             // 
             // btnCerrar
@@ -94,7 +95,7 @@
             // btnLaboratorioMenu
             // 
             btnLaboratorioMenu.FlatStyle = FlatStyle.Flat;
-            btnLaboratorioMenu.Location = new Point(133, 171);
+            btnLaboratorioMenu.Location = new Point(133, 167);
             btnLaboratorioMenu.Name = "btnLaboratorioMenu";
             btnLaboratorioMenu.Size = new Size(88, 63);
             btnLaboratorioMenu.TabIndex = 5;
@@ -105,7 +106,7 @@
             // btnComputadoraMenu
             // 
             btnComputadoraMenu.FlatStyle = FlatStyle.Flat;
-            btnComputadoraMenu.Location = new Point(133, 252);
+            btnComputadoraMenu.Location = new Point(133, 248);
             btnComputadoraMenu.Name = "btnComputadoraMenu";
             btnComputadoraMenu.Size = new Size(88, 63);
             btnComputadoraMenu.TabIndex = 6;
@@ -116,7 +117,7 @@
             // btnTicketMenu
             // 
             btnTicketMenu.FlatStyle = FlatStyle.Flat;
-            btnTicketMenu.Location = new Point(133, 330);
+            btnTicketMenu.Location = new Point(133, 326);
             btnTicketMenu.Name = "btnTicketMenu";
             btnTicketMenu.Size = new Size(88, 63);
             btnTicketMenu.TabIndex = 7;
@@ -124,11 +125,23 @@
             btnTicketMenu.UseVisualStyleBackColor = true;
             btnTicketMenu.Click += btnTicketMenu_Click;
             // 
+            // btnTecnicosMenu
+            // 
+            btnTecnicosMenu.FlatStyle = FlatStyle.Flat;
+            btnTecnicosMenu.Location = new Point(133, 407);
+            btnTecnicosMenu.Name = "btnTecnicosMenu";
+            btnTecnicosMenu.Size = new Size(88, 63);
+            btnTecnicosMenu.TabIndex = 8;
+            btnTecnicosMenu.Text = "Gestionar Técnicos";
+            btnTecnicosMenu.UseVisualStyleBackColor = true;
+            btnTecnicosMenu.Click += btnTecnicosMenu_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(377, 424);
+            ClientSize = new Size(377, 495);
+            Controls.Add(btnTecnicosMenu);
             Controls.Add(btnTicketMenu);
             Controls.Add(btnComputadoraMenu);
             Controls.Add(btnLaboratorioMenu);
@@ -156,5 +169,6 @@
         private Button btnLaboratorioMenu;
         private Button btnComputadoraMenu;
         private Button btnTicketMenu;
+        private Button btnTecnicosMenu;
     }
 }

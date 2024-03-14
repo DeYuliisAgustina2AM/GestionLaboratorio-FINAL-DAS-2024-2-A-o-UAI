@@ -31,10 +31,6 @@ namespace VISTA
             {
                 cbCodigoPc.Items.Add(computadora.CodigoComputadora.ToString());
             }
-            //foreach (Laboratorio laboratorio in ControladoraLaboratorio.Instancia.RecuperarLaboratorios()) //se recorren los laboratorios y se agregan al cmb
-            //{
-            //    cbUbicacion.Items.Add(laboratorio.NombreLaboratorio.ToString());
-            //}
             foreach (Tipo tipo in Enum.GetValues(typeof(Tipo))) //se recorren los valores del enum de Categoria y se agregan al combobox de categorias
             {
                 cbTipoTicket.Items.Add(tipo.ToString());
@@ -50,6 +46,10 @@ namespace VISTA
             foreach (Urgencia urgencia in Enum.GetValues(typeof(Urgencia))) //se recorren los valores del enum de Urgencia y se agregan al combobox de urgencia
             {
                 cbUrgencia.Items.Add(urgencia.ToString());
+            }
+            foreach (Tecnico tecnico in ControladoraTecnico.Instancia.RecuperarTecnicos()) //se recorren los laboratorios y se agregan al cmb
+            {
+                cbTecnico.Items.Add(tecnico.NombreyApellido.ToString());
             }
         }
 
@@ -70,15 +70,14 @@ namespace VISTA
                 lblAgregaroModificar.Text = "Modificar Computadora";
 
                 dtpFechaInicio.Value = ticket.FechaCreacion;
-                txtAsignado.Text = ticket.AgenteAsignado;
                 txtDescripcion.Text = ticket.DescripcionTicket;
 
-                cbCodigoPc.SelectedValue = ticket.computadora;
-                //cbUbicacion.SelectedValue = ticket.Laboratorio;
+                cbCodigoPc.SelectedValue = ticket.Computadora;
                 cbTipoTicket.SelectedValue = ticket.tipo.ToString();
                 cbCategoria.SelectedValue = ticket.categoria.ToString();
                 cbEstado.SelectedValue = ticket.estado.ToString();
                 cbUrgencia.SelectedValue = ticket.urgencia.ToString();
+                cbTecnico.SelectedValue = ticket.Tecnico.NombreyApellido;
             }
             else lblAgregaroModificar.Text = "Agregar Ticket";
         }
@@ -90,13 +89,8 @@ namespace VISTA
                 if (modificar)
                 {
                     string CodigoComputadora = cbCodigoPc.Text;
-                    ticket.computadora = ControladoraComputadora.Instancia.RecuperarComputadoras().FirstOrDefault(x => x.CodigoComputadora == CodigoComputadora);
-                    ticket.Ubicacion = ticket.computadora.Laboratorio.NombreLaboratorio;
-
-
-                    //string NombreLaboratorio = cbUbicacion.Text;
-                    //Laboratorio laboratorio = ControladoraLaboratorio.Instancia.RecuperarLaboratorios().FirstOrDefault(x => x.NombreLaboratorio == NombreLaboratorio);
-                    //ticket.Laboratorio = laboratorio;
+                    ticket.Computadora = ControladoraComputadora.Instancia.RecuperarComputadoras().FirstOrDefault(x => x.CodigoComputadora == CodigoComputadora);
+                    ticket.Ubicacion = ticket.Computadora.Laboratorio.NombreLaboratorio;
 
                     string tipo = cbTipoTicket.Text;
                     ticket.tipo = (Tipo)Enum.Parse(typeof(Tipo), tipo);
@@ -110,8 +104,10 @@ namespace VISTA
                     string urgencia = cbUrgencia.Text;
                     ticket.urgencia = (Urgencia)Enum.Parse(typeof(Urgencia), urgencia);
 
+                    string tecnico = cbTecnico.Text;
+                    ticket.Tecnico = ControladoraTecnico.Instancia.RecuperarTecnicos().FirstOrDefault(x => x.NombreyApellido == tecnico);
+
                     ticket.FechaCreacion = Convert.ToDateTime(dtpFechaInicio.Value);
-                    ticket.AgenteAsignado = txtAsignado.Text;
                     ticket.DescripcionTicket = txtDescripcion.Text;
 
 
@@ -121,11 +117,9 @@ namespace VISTA
                 else
                 {
                     string CodigoComputadora = cbCodigoPc.Text;
-                    ticket.computadora = ControladoraComputadora.Instancia.RecuperarComputadoras().FirstOrDefault(x => x.CodigoComputadora == CodigoComputadora);
-                    ticket.Ubicacion = ticket.computadora.Laboratorio.NombreLaboratorio;
-                    //string NombreLaboratorio = cbUbicacion.Text;
-                    //Laboratorio laboratorio = ControladoraLaboratorio.Instancia.RecuperarLaboratorios().FirstOrDefault(x => x.NombreLaboratorio == NombreLaboratorio);
-
+                    ticket.Computadora = ControladoraComputadora.Instancia.RecuperarComputadoras().FirstOrDefault(x => x.CodigoComputadora == CodigoComputadora);
+                    ticket.Ubicacion = ticket.Computadora.Laboratorio.NombreLaboratorio;
+                   
                     string tipo = cbTipoTicket.Text;
                     ticket.tipo = (Tipo)Enum.Parse(typeof(Tipo), tipo);
 
@@ -138,8 +132,10 @@ namespace VISTA
                     string urgencia = cbUrgencia.Text;
                     ticket.urgencia = (Urgencia)Enum.Parse(typeof(Urgencia), urgencia);
 
+                    string tecnico = cbTecnico.Text;
+                    ticket.Tecnico = ControladoraTecnico.Instancia.RecuperarTecnicos().FirstOrDefault(x => x.NombreyApellido == tecnico);
+
                     ticket.FechaCreacion = Convert.ToDateTime(dtpFechaInicio.Value);
-                    ticket.AgenteAsignado = txtAsignado.Text;
                     ticket.DescripcionTicket = txtDescripcion.Text;
 
                     var mensaje = ControladoraTicket.Instancia.AgregarTicket(ticket);
@@ -161,12 +157,7 @@ namespace VISTA
                 MessageBox.Show("El campo Descripción no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            //if (cbUbicacion.SelectedItem == null)
-            //{
-            //    MessageBox.Show("El campo Ubicación no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return false;
-            //}
-            if (cbTipoTicket.SelectedItem == null)
+           if (cbTipoTicket.SelectedItem == null)
             {
                 MessageBox.Show("El campo Tipo Ticket no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -184,6 +175,11 @@ namespace VISTA
             if (cbUrgencia.SelectedItem == null)
             {
                 MessageBox.Show("El campo Urgencia no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (cbTecnico.SelectedItem == null)
+            {
+                MessageBox.Show("El campo Tecnico no puede estar vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;

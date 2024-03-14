@@ -46,5 +46,11 @@
             Form formHistorialDGV = new formTicketDGV();
             formHistorialDGV.ShowDialog();
         }
+
+        private void btnTecnicosMenu_Click(object sender, EventArgs e)
+        {
+            Form formTecnicoDGV = new formTecnicoDGV();
+            formTecnicoDGV.ShowDialog();
+        }
     }
 }
