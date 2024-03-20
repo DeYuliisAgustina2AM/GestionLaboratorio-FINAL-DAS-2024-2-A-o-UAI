@@ -90,8 +90,8 @@ namespace Modelo.Migrations
                     urgencia = table.Column<int>(type: "int", nullable: false),
                     estado = table.Column<int>(type: "int", nullable: false),
                     tipo = table.Column<int>(type: "int", nullable: false),
-                    TecnicoId = table.Column<int>(type: "int", nullable: false),
-                    ComputadoraId = table.Column<int>(type: "int", nullable: false)
+                    ComputadoraId = table.Column<int>(type: "int", nullable: false),
+                    TecnicoId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -12,7 +12,7 @@ using Modelo;
 namespace Modelo.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240314165357_InitialCreate")]
+    [Migration("20240320001516_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -238,7 +238,7 @@ namespace Modelo.Migrations
             modelBuilder.Entity("Entidades.Ticket", b =>
                 {
                     b.HasOne("Entidades.Computadora", "Computadora")
-                        .WithMany()
+                        .WithMany("Tickets")
                         .HasForeignKey("ComputadoraId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -252,6 +252,11 @@ namespace Modelo.Migrations
                     b.Navigation("Computadora");
 
                     b.Navigation("Tecnico");
+                });
+
+            modelBuilder.Entity("Entidades.Computadora", b =>
+                {
+                    b.Navigation("Tickets");
                 });
 
             modelBuilder.Entity("Entidades.Laboratorio", b =>

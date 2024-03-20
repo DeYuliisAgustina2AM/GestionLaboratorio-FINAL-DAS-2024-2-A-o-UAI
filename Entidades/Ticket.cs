@@ -24,11 +24,10 @@ namespace Entidades
         public Estado estado { get; set; }
         public Tipo tipo { get; set; }
 
+        public Computadora Computadora { get; set; } //un ticket pertenece a una computadora
+
+        public Tecnico Tecnico { get; set; } //un ticket pertenece a un tecnico
+
         public ICollection<Laboratorio>laboratorios { get; set; } = new List<Laboratorio>();
-
-        public Tecnico Tecnico { get; set; }
-
-        public Computadora Computadora { get; set; }
-
     }
 }

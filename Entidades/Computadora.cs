@@ -24,6 +24,6 @@ namespace Entidades
         public int LaboratorioId { get; set; } //FK
         public Laboratorio Laboratorio { get; set; } //una computadora pertenece a un laboratorio
 
-
+        public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>(); //una computadora puede tener muchos tickets
     }
 }

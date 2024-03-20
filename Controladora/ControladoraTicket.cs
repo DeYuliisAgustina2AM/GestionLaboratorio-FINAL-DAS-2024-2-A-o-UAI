@@ -46,8 +46,20 @@ namespace Controladora
                 var ticketEncontrado = listaTickets.FirstOrDefault(t => t.Computadora.CodigoComputadora == ticket.Computadora.CodigoComputadora); //busco el ticket por id en la lista de tickets para evitar que se repitan
                 if (ticketEncontrado == null)
                 {
-                    
                     context.Tickets.Add(ticket);
+                    if(context.Computadoras.Any(c => c.CodigoComputadora == ticket.Computadora.CodigoComputadora))
+                    {
+                        context.Computadoras.Attach(ticket.Computadora);
+                    }
+                    if(context.Laboratorios.Any(l => l.NombreLaboratorio == ticket.Computadora.Laboratorio.NombreLaboratorio))
+                    {
+                        context.Laboratorios.Attach(ticket.Computadora.Laboratorio);
+                    }
+                    if(context.Tecnicos.Any(t => t.NombreyApellido == ticket.Tecnico.NombreyApellido))
+                    {
+                        context.Tecnicos.Attach(ticket.Tecnico);
+                    }
+
                     context.SaveChanges();
 
                     return $"El ticket se agregó correctamente";
@@ -57,7 +69,7 @@ namespace Controladora
                     return $"El ticket ya existe";
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "Error desconocido";
             }
@@ -72,6 +84,18 @@ namespace Controladora
                 if (ticketEncontrado != null)
                 {
                     context.Tickets.Update(ticket);
+                    if (context.Computadoras.Any(c => c.CodigoComputadora == ticket.Computadora.CodigoComputadora))
+                    {
+                        context.Computadoras.Attach(ticket.Computadora);
+                    }
+                    if (context.Laboratorios.Any(l => l.NombreLaboratorio == ticket.Computadora.Laboratorio.NombreLaboratorio))
+                    {
+                        context.Laboratorios.Attach(ticket.Computadora.Laboratorio);
+                    }
+                    if (context.Tecnicos.Any(t => t.NombreyApellido == ticket.Tecnico.NombreyApellido))
+                    {
+                        context.Tecnicos.Attach(ticket.Tecnico);
+                    }
                     int insertados = context.SaveChanges();
                     if (insertados > 0)
                     {
@@ -99,6 +123,18 @@ namespace Controladora
                 if (ticketEncontrado != null) //si el ticket existe, lo elimino
                 {
                     context.Tickets.Remove(ticket);
+                    if (context.Computadoras.Any(c => c.CodigoComputadora == ticket.Computadora.CodigoComputadora))
+                    {
+                        context.Computadoras.Attach(ticket.Computadora);
+                    }
+                    if (context.Laboratorios.Any(l => l.NombreLaboratorio == ticket.Computadora.Laboratorio.NombreLaboratorio))
+                    {
+                        context.Laboratorios.Attach(ticket.Computadora.Laboratorio);
+                    }
+                    if (context.Tecnicos.Any(t => t.NombreyApellido == ticket.Tecnico.NombreyApellido))
+                    {
+                        context.Tecnicos.Attach(ticket.Tecnico);
+                    }
                     int insertados = context.SaveChanges();
                     if (insertados > 0)
                     {
